@@ -1,17 +1,14 @@
 <template>
     <div>
-        <h2>
-            Поставь оценку)
-        </h2>
-        <select>
-            <option value="val1" selected>
-                4
+        <select @change="sel" v-model="colorEyes">
+            <option value="лысый">
+                лысый
             </option>
-            <option value="val2" selected>
-                4
+            <option value="полосатый">
+                полосатый
             </option>
-            <option value="val3" selected>
-                4
+            <option value="взъерошенный">
+                взъерошенный
             </option>
         </select>
     </div>
@@ -22,12 +19,23 @@ export default {
     name: "selectBlock",
     data () {
         return {
-            mes: 'ky'
+            colorEyes: '',
+        }
+    },
+    props: ['select'],
+    methods: {
+        sel () {
+            this.$emit('sel', this.colorEyes)
         }
     }
 }
 </script>
 
 <style scoped>
-
+select {
+    width: 400px;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
 </style>

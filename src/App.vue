@@ -1,25 +1,18 @@
 <template>
     <div id="app">
         <h1>Кто ты из котиков ଲ(ⓛ ω ⓛ)ଲ</h1>
-        <checkboxBlock />
-        <radioButtonBlock />
-        <selectBlock />
-
+        <testBlock />
     </div>
 </template>
 
 <script>
 
-import checkboxBlock from "@/components/checkboxBlock.vue";
-import selectBlock from "@/components/selectBlock.vue";
-import radioButtonBlock from "@/components/radioButtonBlock.vue";
+import testBlock from "@/components/testBlock.vue";
 
 export default {
     name: 'App',
     components: {
-        checkboxBlock,
-        selectBlock,
-        radioButtonBlock
+        testBlock
     }
 }
 </script>
