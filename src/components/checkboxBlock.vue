@@ -28,7 +28,7 @@ export default {
     props: ['checkbox'],
     methods: {
         check () {
-            this.$emit('check', this.res[0])
+            this.$emit('check', this.res.toString())
         }
     }
 }

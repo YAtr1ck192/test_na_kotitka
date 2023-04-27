@@ -1,7 +1,7 @@
 <template>
     <div>
         <select @change="sel" v-model="colorEyes">
-            <option value="лысый">
+            <option value="лысый" selected>
                 лысый
             </option>
             <option value="полосатый">

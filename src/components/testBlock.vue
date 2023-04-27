@@ -7,7 +7,7 @@
                     v-for="item in checkboxItems"
                     :key="item"
                     :checkbox="item"
-                    @check="checkboxResult = $event"
+                    @check="checkboxResult += $event"
             />
         </div>
         <p
@@ -47,7 +47,6 @@
             Вы выбрали: {{ selectResult }}
         </p>
     </div>
-
     <button @click="result = !result">
         Посмотреть результат
     </button>
@@ -70,19 +69,19 @@ export default {
         return {
             checkboxItems: [
                 {
-                    mood: 'радостный',
+                    mood: 'радостный, ',
                     img: '/images/funny.jpg',
                     id: 'funny',
                     index: 0
                 },
                 {
-                    mood: 'грустный',
+                    mood: 'грустный, ',
                     img: '/images/sad.jpg',
                     id: 'sad',
                     index: 1
                 },
                 {
-                    mood: 'сонный',
+                    mood: 'сонный, ',
                     img: '/images/sleepy.jpg',
                     id: 'sleepy',
                     index: 2
