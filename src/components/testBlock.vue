@@ -1,6 +1,6 @@
 <template>
 <div id="test">
-    <h2>Какой ты сегодня? (Выбери только 1 вариант ответа)</h2>
+    <h2>Какой ты сегодня?</h2>
     <div class="container">
         <div class="box">
             <checkboxBlock
@@ -69,19 +69,19 @@ export default {
         return {
             checkboxItems: [
                 {
-                    mood: 'радостный, ',
+                    mood: 'радостный ',
                     img: '/images/funny.jpg',
                     id: 'funny',
                     index: 0
                 },
                 {
-                    mood: 'грустный, ',
+                    mood: 'грустный ',
                     img: '/images/sad.jpg',
                     id: 'sad',
                     index: 1
                 },
                 {
-                    mood: 'сонный, ',
+                    mood: 'сонный ',
                     img: '/images/sleepy.jpg',
                     id: 'sleepy',
                     index: 2
