@@ -9,7 +9,7 @@
                      :value="checkbox.mood"
                      :id="checkbox.id"
                      v-model="res"
-                     @change="check"
+                     @click="check"
              >
          </div>
          <img :src="checkbox.img" alt="mood">
@@ -22,13 +22,22 @@ export default {
     name: "checkboxBlock",
     data () {
         return {
-            res: []
+            res: [],
+            active: false,
+            noActive: ''
         }
     },
     props: ['checkbox'],
     methods: {
         check () {
-            this.$emit('check', this.res.toString())
+            if (this.active === false) {
+                this.active = !this.active
+                this.$emit('check', this.res.toString())
+            } else {
+                this.$emit('check', this.noActive.toString())
+                this.active = !this.active
+            }
+
         }
     }
 }

@@ -3,12 +3,48 @@
     <h2>Какой ты сегодня?</h2>
     <div class="container">
         <div class="box">
-            <checkboxBlock
-                    v-for="item in checkboxItems"
-                    :key="item"
-                    :checkbox="item"
-                    @check="checkboxResult += $event"
-            />
+            <div>
+                <div class="checkbox-content">
+                    <label for="funny">
+                        радостный
+                    </label>
+                    <input
+                            type="checkbox"
+                            value="радостный"
+                            id="funny"
+                            v-model="checkboxResult"
+                    >
+                </div>
+                <img src='/images/funny.jpg' alt="mood">
+            </div>
+            <div>
+                <div class="checkbox-content">
+                    <label for="sad">
+                        грустный
+                    </label>
+                    <input
+                            type="checkbox"
+                            value="грустный"
+                            id="sad"
+                            v-model="checkboxResult"
+                    >
+                </div>
+                <img src='/images/sad.jpg' alt="mood">
+            </div>
+            <div>
+                <div class="checkbox-content">
+                    <label for="sleepy">
+                        сонный
+                    </label>
+                    <input
+                            type="checkbox"
+                            value="сонный"
+                            id="sleepy"
+                            v-model="checkboxResult"
+                    >
+                </div>
+                <img src='/images/sleepy.jpg' alt="mood">
+            </div>
         </div>
         <p
                 v-if="checkboxResult.length !== 0"
@@ -29,7 +65,7 @@
             />
         </div>
         <p
-                v-if="radioResult"
+                v-if="radioResult !== ''"
         >
             Вы выбрали: {{ radioResult }}
         </p>
@@ -39,7 +75,7 @@
     </h2>
     <div class="container">
             <selectBlock
-                @sel="selectResult = $event"
+                    @sel="selectResult = $event"
             />
         <p
             v-if="selectResult"
@@ -47,7 +83,8 @@
             Вы выбрали: {{ selectResult }}
         </p>
     </div>
-    <button @click="result = !result">
+    <button
+            @click="result = !result">
         Посмотреть результат
     </button>
     <p
@@ -59,35 +96,13 @@
 </template>
 
 <script>
-
-import checkboxBlock from "@/components/checkboxBlock.vue";
 import selectBlock from "@/components/selectBlock.vue";
 import radioButtonBlock from "@/components/radioButtonBlock.vue";
 export default {
     name: "testBlock",
     data () {
         return {
-            checkboxItems: [
-                {
-                    mood: 'радостный ',
-                    img: '/images/funny.jpg',
-                    id: 'funny',
-                    index: 0
-                },
-                {
-                    mood: 'грустный ',
-                    img: '/images/sad.jpg',
-                    id: 'sad',
-                    index: 1
-                },
-                {
-                    mood: 'сонный ',
-                    img: '/images/sleepy.jpg',
-                    id: 'sleepy',
-                    index: 2
-                },
-            ],
-            checkboxResult: '',
+            checkboxResult: [],
             radioItems: [
                 {
                     color: 'рыжий',
@@ -114,7 +129,6 @@ export default {
         }
     },
     components: {
-        checkboxBlock,
         selectBlock,
         radioButtonBlock,
     },
@@ -125,11 +139,22 @@ export default {
         res: function () {
             return 'Вы ' + this.checkboxResult + ' ' + this.radioResult + ' ' + this.selectResult + ' кот'
         }
+
     }
 }
 </script>
 
 <style scoped>
+h2 {
+    text-align: center;
+}
+img {
+    width: 300px;
+    height: 150px;
+}
+input {
+    margin-bottom: 20px;
+}
 #test {
     display: flex;
     align-items: center;
